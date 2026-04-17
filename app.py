@@ -7,8 +7,8 @@ from ultralytics import YOLO
 
 app = FastAPI()
 
-MODEL_PATH = "best.pt"
-model = YOLO(MODEL_PATH)
+# تحميل الموديل
+model = YOLO("best.pt")
 
 classes = {
     0: "improper posture",
@@ -26,8 +26,6 @@ classes = {
     12: "multiple distractions"
 }
 
-app = FastAPI()
-
 @app.get("/")
 def root():
     return {"message": "API is running"}
@@ -41,6 +39,7 @@ async def predict(file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, buffer)
 
         img = cv2.imread(filename)
+
         results = model(img, verbose=False)
         result = results[0]
 
