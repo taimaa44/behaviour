@@ -1,7 +1,5 @@
 fastapi
-uvicorn[standard]
-ultralytics==8.3.40
-torch==2.5.1
-pillow
+uvicorn
+opencv-python-headless
+ultralytics
 python-multipart
-gdown
