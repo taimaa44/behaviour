@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+ultralytics
+opencv-python
+python-multipart
+tensorflow==2.15.0
